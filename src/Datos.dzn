@@ -1,9 +1,9 @@
 num_clientes = 2;
 num_dias = 7;
-%num_plantas = 3;
+num_plantas = 3;
 min_porcent_demanda = 50;
-%reg_alto_dias = 2;
-%reg_alto_porcent = 80;
+reg_alto_dias = 2;
+reg_alto_porcent = 80;
 costo = [100, 80, 50];
 capacidad = [600, 200, 300];
 pago = [200, 150];
