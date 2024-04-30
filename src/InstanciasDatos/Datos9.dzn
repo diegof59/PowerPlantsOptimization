@@ -1,0 +1,59 @@
+%int: n; % Número de días
+%int: m; % Número de clientes
+%array[1..n, 1..m] of int: demand; % Demanda diaria por cliente y día
+%array[1..3] of int: costs; % Costos de producción (N, H, T)
+%array[1..3] of int: capacities; % Capacidad diaria (N, H, T)
+%array[1..m] of int: Ps; % Pago individual por cliente por MW
+%float: min_demand_percentage = 0.50; % Porcentaje mínimo de demanda a cubrir
+%float: hydro_max_percentage = 0.80; % Porcentaje máximo de capacidad para hidroeléctrica
+%int: hydro_max_consecutive_days = 1; % Días consecutivos máximos a ese porcentaje
+
+
+% Número de días
+n = 20;
+
+% Número de clientes
+m = 2;
+
+% Demanda diaria por cliente y día (suponiendo veinte días y 2 clientes)
+demand = [| 780,  790
+          | 785,  795
+          | 790,  800
+          | 795,  805
+          | 800,  810
+          | 805,  815
+          | 810,  820
+          | 815,  825
+          | 820,  830
+          | 825,  835
+          | 830,  840
+          | 835,  845
+          | 840,  850
+          | 845,  855
+          | 850,  860
+          | 855,  865
+          | 860,  870
+          | 865,  875
+          | 870,  880
+          | 875,  885 |];
+
+
+% Costos de producción (Nuclear, Hidroeléctrica, Térmica)
+costs = [48, 23, 31]; 
+
+% Capacidad diaria (Nuclear, Hidroeléctrica, Térmica)
+capacities = [1170, 390, 635];
+
+% Pago individual por cliente por MW (2 clientes)
+Ps = [66, 65]; 
+
+% Porcentaje mínimo de demanda a cubrir
+min_demand_percentage = 0.60;
+
+% Porcentaje máximo de capacidad para hidroeléctrica
+hydro_max_percentage = 0.90;
+
+% Días consecutivos máximos a ese porcentaje
+hydro_max_consecutive_days = 1;
+
+

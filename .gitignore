@@ -1,0 +1,6 @@
+# Python folders and files
+.venv
+__pycache__/
+poetry.lock
+# Minizinc compiled
+*.ozn
