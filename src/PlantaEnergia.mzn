@@ -10,8 +10,8 @@ int: num_clientes; % Número de clientes a abastecer
 int: num_dias; % Número de días en el horizonte de planificación
 int: num_plantas = 3; % Número de plantas: Se puede generalizar a más de las 3 plantas del enunciado
 int: min_porcent_demanda; % Porcentaje mínimo de demanda a satisfacer
-/* int: reg_alto_porcent = 80; % Porcentaje de producción a partir del cual se considera que la central hidroeléctrica opera en régimen alto
-int: reg_alto_dias = 2; */ % Número de días consecutivos a partir de los cuales no está permitido producir en régimen alto
+int: reg_alto_porcent = 80; % Porcentaje de producción a partir del cual se considera que la central hidroeléctrica opera en régimen alto
+int: reg_alto_dias = 2; % Número de días consecutivos a partir de los cuales no está permitido producir en régimen alto
 
 array[1..num_plantas] of int: costo;  % Costo por MW producido en cada planta
 array[1..num_plantas] of int: capacidad;  % Capacidad diaria en cada planta, en MW
@@ -62,7 +62,7 @@ constraint forall(n in 1..num_dias) (
 % supera el porcentaje definido como regimen alto de su capacidad productiva en un día, entonces
 % no puede producir en regimen alto durante más días consecutivos definidos como permitidos.
 
-/* %% Restricción que popula el arreglo en_regimen_alto
+%% Restricción que popula el arreglo en_regimen_alto
 constraint forall(d in 1..num_dias) (
  en_regimen_alto[d] = (sum(s in 1..num_clientes) (produccion[s,d,2]) > (capacidad[2] * (reg_alto_porcent / 100)))
 );
@@ -71,7 +71,7 @@ constraint forall(d in 1..num_dias) (
 % desde 1 hasta num_dias-reg_alto_dias
 constraint forall(d in 1..(num_dias-reg_alto_dias)) (
   exists(i in d..d+reg_alto_dias) (not en_regimen_alto[i])
-  ); */
+  );
 
 % Función Objetivo
 % Se busca maximizar la ganancia neta, que se calcula como la suma de
